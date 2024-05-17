@@ -1,0 +1,107 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Hotel</title>
+</head>
+<body>
+    <form method="POST">
+        <label>Name</label>
+        <input type="text" placeholder="enter your name" name="name" required>
+        <label>email:</label>
+        <input type="email" placeholder="toi this email you get the notification" name="email" required>
+        <label>contact Number:</label>
+        <input type="tel" placeholder="enter your phone number" name="phone" required>
+        <label>no  of rooms booking:</label>
+        <input type="number" placeholder="enter no of rooms" name="rooms" required>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+<body>
+    <form method="POST">
+        <h1>Book Hotel</h1>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" name="email" required>
+        <label for="phone">Contact Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" name="phone" required>
+        <label for="rooms">No. of Rooms Booking:</label>
+        <input type="number" id="rooms" placeholder="Enter no. of rooms" name="rooms" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

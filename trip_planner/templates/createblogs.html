@@ -1,0 +1,152 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blogs</title>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('blogs_dashboard')}}">BACK</a>
+    <h1>Create a New Blog</h1>
+    <form method="POST" action="#">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" rows="5" required></textarea><br>
+        <label>enter the city name only :</label>
+        {% if places %}
+        <select id="place" name="place" required>
+            {% for i in places %}
+            <option value="{{i[1]}}">{{i[1]}}</option>
+            {% endfor %}
+        </select><br>
+        {% else %}
+here you can add new place
+        {% endif %}
+
+        <a href="{{url_for('addnewplace_b')}}">Add new place</a>
+        
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a class="back-button" href="{{url_for('blogs_dashboard')}}">Back</a>
+    <div class="container">
+        <h1>Create a New Blog</h1>
+        <form method="POST" action="#">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content" rows="5" required></textarea><br>
+
+            <label for="place">Enter the city name only:</label><br>
+            {% if places %}
+                <select id="place" name="place" required>
+                    {% for i in places %}
+                        <option value="{{i[1]}}">{{i[1]}}</option>
+                    {% endfor %}
+                </select><br>
+            {% else %}
+                Here you can add a new place
+            {% endif %}
+
+            <a href="{{url_for('addnewplace_b')}}">Add new place</a><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+

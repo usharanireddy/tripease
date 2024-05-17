@@ -1,0 +1,80 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Dashboard</title>
+</head>
+<body>
+    <a href="{{url_for('ulogout')}}">LOGOUT</a>
+    <a href="{{url_for('createblog')}}">create blog</a>
+    <a href="{{url_for('viewblog')}}">View blog</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .dashboard-links {
+            text-align: center;
+        }
+
+        .dashboard-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-links a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+<body>
+    <div class="container">
+        <h1>Users Dashboard</h1>
+        <div class="dashboard-links">
+            <a href="{{url_for('ulogout')}}">LOGOUT</a>
+            <a href="{{url_for('createblog')}}">Create Blog</a>
+            <a href="{{url_for('viewblog')}}">View Blog</a>
+        </div>
+    </div>
+</body>
+</html>

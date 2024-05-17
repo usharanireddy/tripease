@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view bookings</title>
+</head>
+<body>
+    <a href="{{url_for('hotel_dashboard')}}">BACK</a>
+    {% if b %}
+    {% for i in b %}
+    <p>name : {{i[1]}}</p>
+    <p>email" {{i[2]}} </p>
+    <p>contact number:{{i[3]}} </p>
+    <p>no of rooms:{{i[4]}} </p>
+    {% endfor %}
+    {% else %}
+    <p>no bookings available</p>
+    {% endif %}
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Set container position to relative */
+        }
+        .back-button {
+            position: absolute; /* Set button position to absolute */
+            top: 10px; /* Align button to the top */
+            right: 10px; /* Align button to the right */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+        p {
+            margin-bottom: 10px;
+            color: #333;
+            line-height: 1.5; /* Improved line spacing for better readability */
+        }
+        /* Apply different styles to even and odd booking entries for better differentiation */
+        .booking:nth-child(even) {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .booking:nth-child(odd) {
+            background-color: #e0e0e0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{url_for('hotel_dashboard')}}" class="back-button">BACK</a>
+        <h4>View Bookings</h4>
+        {% if b %}
+            {% for i in b %}
+                <div class="booking">
+                    <p>Name: {{i[1]}}</p>
+                    <p>Email: {{i[2]}}</p>
+                    <p>Contact Number: {{i[3]}}</p>
+                    <p>Number of Rooms: {{i[4]}}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No bookings available</p>
+        {% endif %}
+    </div>
+</body>
+</html>

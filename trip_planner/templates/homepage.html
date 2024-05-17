@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Hotel details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            padding: 20px;
+        }
+
+        .i-details {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .i-details img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="{{url_for('home')}}">BACK</a>
+    <div class="container">
+        <h1>List of hotels</h1>
+        {% if h %}
+        {% for i in h %}
+        <div class="i-details">
+            <h2>Hotel Name: {{ i[1] }}</h2>
+
+            <span>Contact Number: {{ i[3] }}</span><br>
+            <span>Email: {{ i[4] }}</span><br>
+            <span>Address: {{ i[5] }}</span><br>
+            <span>Timings: {{ i[6] }}</span><br>
+            <span>Total Rooms: {{ i[7] }}</span><br>
+            <span>Room Cost: ${{ i[8] }}</span><br>
+            <span>Description: {{ i[9] }}</span><br>
+            <span>Rooms Availability: {{ i[11] }}</span><br>
+            <span>Number of Rooms Available: {{ i[12] }}</span>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static', filename=i[2]+'.jpg') }}" class="card-img-top" alt="Hotel Picture">
+                </div>
+                <div class="col-md-6">
+                    <img src="{{ url_for('static', filename=i[10]+'.jpg') }}" class="card-img-top" alt="Room Picture">
+                </div>
+            </div>
+            <a href="{{url_for('booktohotel',hid=i[0])}}">book to th ehotel</a>
+        </div>
+        {% endfor %}
+       
+        {% else %}
+        <p> not added any hotels.</p>
+        {% endif %}
+        <h3>Trip Pacakge</h3>
+        {% if t %}
+    {% for i in t %}
+    <h5>{{i[10]}}</h5>
+<p>package name:{{i[2]}} </p>
+<p>description:{{i[3]}}</p>
+<p>Price : {{i[4]}}</p>
+<p>start date: {{i[5]}}</p>
+<p>end_date: {{i[6]}}</p>
+<p>duration days: {{i[7]}}</p>
+<p>includes amenities: {{ i[8] }}</p>
+<p>excludes amenties:{{ i[9] }}</p>
+    {% endfor %}
+    {% else %}
+    <p>no trip package are added </p>
+    {% endif %}
+
+    </div>
+    <h4>Blog</h4>
+    {% if b %}
+    {% for i in b %}
+    <p>title: {{i[1]}}</p>
+    <p>content: {{i[2]}}</p>
+    <p>uploaded time: {{i[3]}}</p>
+    <p>author: {{i[4]}}</p>
+    {% endfor %}
+    {% else %}
+    <p>no blogs are added</p>
+    {% endif %}
+</body>
+
+</html>

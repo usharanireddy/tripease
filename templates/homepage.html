@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Hotel details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+         body{
+            background-image: url('https://images.rawpixel.com/image_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMThiYXRjaDktYXVtLTA2XzEuanBn.jpg');
+            /* background-repeat: no-repeat; */
+           background-size: cover;
+         }
+        .container {
+            padding: 20px;
+        }
+
+        .main-section {
+          
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .inner-section {
+            border: 1px solid #0a0606;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .i-details img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a  class="btn btn-primary"href="{{url_for('home')}}">BACK</a>
+    <div class="container">
+        <div class="main-section">
+            <h1>List of hotels</h1>
+            {% if h %}
+            {% for i in h %}
+            <div class="inner-section">
+                <h2>Hotel Name: {{ i[1] }}</h2>
+
+                <span><b>Contact Number:</b> {{ i[3] }}</span><br>
+                <span><b>Email: </b>{{ i[4] }}</span><br>
+                <span><b>Address: </b>{{ i[5] }}</span><br>
+                <span><b>Timings:</b> {{ i[6] }}</span><br>
+                <span><b>Total Rooms:</b> {{ i[7] }}</span><br>
+                <span><b>Room Cost: $</b>{{ i[8] }}</span><br>
+                <span><b>Description:</b> {{ i[9] }}</span><br>
+                <span><b>Rooms Availability:</b> {{ i[11] }}</span><br>
+                <span><b>Number of Rooms Available: </b>{{ i[12] }}</span>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <img src="{{ url_for('static', filename=i[2]+'.jpg') }}" class="card-img-top" alt="Hotel Picture">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{ url_for('static', filename=i[10]+'.jpg') }}" class="card-img-top" alt="Room Picture">
+                    </div>
+                </div>
+                <a href="{{url_for('booktohotel',hid=i[0])}}" class="btn btn-primary">Book to the hotel</a> <!-- Changed to Button -->
+            </div>
+            {% endfor %}
+
+            {% else %}
+            <p> not added any hotels.</p>
+            {% endif %}
+        </div>
+
+        <div class="main-section">
+            <h3>Trip Package</h3>
+            {% if t %}
+            {% for i in t %}
+            <div class="inner-section">
+                <h5>{{i[10]}}</h5>
+                <p><b>package name:</b>{{i[2]}} </p>
+                <p><b>description:</b>{{i[3]}}</p>
+                <p><b>Price : </b>{{i[4]}}</p>
+                <p><b>start date:</b> {{i[5]}}</p>
+                <p><b>end_date: </b>{{i[6]}}</p>
+                <p><b>includes amenities:</b> {{ i[8] }}</p>
+                <p><b>excludes amenties:</b>{{ i[9] }}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>no trip packages are added </p>
+            {% endif %}
+        </div>
+
+        <div class="main-section">
+            <h4>Blog</h4>
+            {% if b %}
+            {% for i in b %}
+            <div class="inner-section">
+                <p><b>Title:</b> {{i[1]}}</p>
+                <p><b>content:</b> {{i[2]}}</p>
+                <p><b>uploaded time:</b> {{i[3]}}</p>
+                <p><b>author:</b> {{i[4]}}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>no blogs are added</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

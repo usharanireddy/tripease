@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view blogs by admin</title>
+</head>
+<body>
+    <a href="{{url_for('blogs_dashboard')}}">BACK</a>
+    {% if d %}
+    {% for i in d %}
+    <p>title: {{i[1]}}</p>
+    <p>content: {{i[2]}}</p>
+    <p>uploaded time: {{i[3]}}</p>
+    {% endfor %}
+    {% else %}
+    <p>no blogs are added</p>
+    {% endif%}
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blogs by Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Set container position to relative */
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            position: absolute; /* Set link position to absolute */
+            top: 10px; /* Set top position */
+            right: 10px; /* Set right position */
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+        h4 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .blog-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .blog-content {
+            font-size: 16px;
+        }
+        .uploaded-time {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{url_for('blogs_dashboard')}}">BACK</a>
+        <h4>View Blogs by Admin</h4>
+        {% if d %}
+            {% for i in d %}
+                <div class="blog-item">
+                    <p class="blog-title">Title: {{i[1]}}</p>
+                    <p class="blog-content">Content: {{i[2]}}</p>
+                    <p class="uploaded-time">Uploaded Time: {{i[3]}}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No blogs are added</p>
+        {% endif %}
+    </div>
+</body>
+</html>

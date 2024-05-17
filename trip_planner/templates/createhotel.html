@@ -1,0 +1,222 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hotel</title>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('hotel_dashboard')}}">BACK</a>
+
+    <h1>Add New Hotel</h1>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <label for="hotel_name">Hotel Name:</label><br>
+        <input type="text" id="hotel_name" name="hotel_name" required><br>
+
+        <label for="hotel_picture">Hotel Picture URL:</label><br>
+        <input type="file" id="hotel_picture" name="hotel_picture" required><br>
+
+        <label for="contact_number">Contact Number:</label><br>
+        <input type="text" id="contact_number" name="contact_number" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="address_details">Address Details:</label><br>
+        <textarea id="address_details" name="address_details" required></textarea><br>
+
+        <label for="opening_timings">Timings:</label><br>
+        <input type="text" id="opening_timings" name="timings" required><br>
+
+        <label for="total_rooms">Total Rooms:</label><br>
+        <input type="number" id="total_rooms" name="total_rooms" required><br>
+
+        <label for="room_cost">Room Cost:</label><br>
+        <input type="text" id="room_cost" name="room_cost" required><br>
+
+        <label for="hotel_description">Hotel Description:</label><br>
+        <textarea id="hotel_description" name="hotel_description"></textarea><br>
+
+        <label for="room_images">Room Images URL:</label><br>
+        <input type="file" id="room_images" name="room_images"><br>
+
+        <label for="room_availability">Room Availability:</label><br>
+        <select id="room_availability" name="room_availability" required>
+            <option value="available">Available</option>
+            <option value="not available">Not Available</option>
+        </select><br>
+        
+        <label for="available_rooms">Available Rooms:</label><br>
+        <input type="number" id="available_rooms" name="available_rooms" placeholder="if not available enter 0" required><br>
+        <label for="places">Enter the City Name :</label><br>
+        <label>enter the city name only :</label>
+        {% if places %}
+        <select id="place" name="place" required>
+            {% for i in places %}
+            <option value="{{i[1]}}">{{i[1]}}</option>
+            {% endfor %}
+        </select><br>
+        {% else %}
+here you can add new place
+        {% endif %}
+
+        <a href="{{url_for('addnewplace')}}">Add new place</a>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        form {
+            max-width: 600px;
+            margin: 60px auto 20px; /* Adjusted the top margin to create space for the BACK button */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        select {
+            width: 100%;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            float : right;
+        }
+        a.button:hover {
+            background-color: #45a049;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{ url_for('hotel_dashboard') }}" class="button">BACK</a>
+
+
+    <h1>Add New Hotel</h1>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <label for="hotel_name">Hotel Name:</label>
+        <input type="text" id="hotel_name" name="hotel_name" required>
+
+        <label for="hotel_picture">Hotel Picture URL:</label>
+        <input type="file" id="hotel_picture" name="hotel_picture" required>
+
+        <label for="contact_number">Contact Number:</label>
+        <input type="text" id="contact_number" name="contact_number" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="address_details">Address Details:</label>
+        <textarea id="address_details" name="address_details" required></textarea>
+
+        <label for="opening_timings">Timings:</label>
+        <input type="text" id="opening_timings" name="timings" required>
+
+        <label for="total_rooms">Total Rooms:</label>
+        <input type="number" id="total_rooms" name="total_rooms" required>
+
+        <label for="room_cost">Room Cost:</label>
+        <input type="text" id="room_cost" name="room_cost" required>
+
+        <label for="hotel_description">Hotel Description:</label>
+        <textarea id="hotel_description" name="hotel_description"></textarea>
+
+        <label for="room_images">Room Images URL:</label>
+        <input type="file" id="room_images" name="room_images">
+
+        <label for="room_availability">Room Availability:</label>
+        <select id="room_availability" name="room_availability" required>
+            <option value="available">Available</option>
+            <option value="not available">Not Available</option>
+        </select>
+        
+        <label for="available_rooms">Available Rooms:</label>
+        <input type="number" id="available_rooms" name="available_rooms" placeholder="If not available, enter 0" required>
+
+        <label for="places">Enter the City Name:</label>
+        <label>Enter the city name only:</label>
+        {% if places %}
+        <select id="place" name="place" required>
+            {% for i in places %}
+            <option value="{{i[1]}}">{{i[1]}}</option>
+            {% endfor %}
+        </select>
+        {% else %}
+        Here you can add a new place
+        {% endif %}
+
+        <a href="{{ url_for('addnewplace') }}">If you Want add the new city ..?</a>
+        <div class="center">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
+

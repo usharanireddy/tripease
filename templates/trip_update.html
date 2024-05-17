@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Trips by Admin</title>
+    <style>
+        /* Your existing CSS styles */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{url_for('tripplanner_dashboard')}}" class="back-btn">BACK</a>
+        {% if details %}
+            {% for i in details %}
+                <form method="POST" action="{{url_for('update_trips',package_id=i[0])}}">
+                    <h5>{{i[10]}}</h5>
+                    <p>Package Name: <input type="text" name="package_name" value="{{i[2]}}"></p>
+                    <p>Description: <textarea name="description">{{i[3]}}</textarea></p>
+                    <p>Price: <input type="text" name="price" value="{{i[4]}}"></p>
+                    <p>Start Date: <input type="date" name="start_date" value="{{i[5]}}"></p>
+                    <p>End Date: <input type="date" name="end_date" value="{{i[6]}}"></p>
+                    <p>Duration (days): <input type="number" name="duration" value="{{i[7]}}"></p>
+                    <p>Includes Amenities: <input type="text" name="includes" value="{{i[8]}}"></p>
+                    <p>Excludes Amenities: <input type="text" name="excludes" value="{{i[9]}}"></p>
+                    <!-- Add submit button for updating trip -->
+                    <input type="submit" value="Update">
+                </form>
+                <!-- Form for deleting trip -->
+            {% endfor %}
+        {% else %}
+            <p>No trip packages are added</p>
+        {% endif %}
+    </div>
+</body>
+</html>

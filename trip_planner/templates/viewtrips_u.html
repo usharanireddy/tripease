@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view trips anyone</title>
+</head>
+<body>
+    <a href="{{url_for('home')}}">BACK</a>
+
+    {% if d %}
+    {% for i in d %}
+    <h5>{{i[10]}}</h5>
+<p>package name:{{i[2]}} </p>
+<p>description:{{i[3]}}</p>
+<p>Price : {{i[4]}}</p>
+<p>start date: {{i[5]}}</p>
+<p>end_date: {{i[6]}}</p>
+<p>duration days: {{i[7]}}</p>
+<p>includes amenities: {{ i[8] }}</p>
+<p>excludes amenties:{{ i[9] }}</p>
+    {% endfor %}
+    {% else %}
+    <p>no trip package are added </p>
+    {% endif %}
+    
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Trips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Set container position to relative */
+        }
+        a.back-btn {
+            position: absolute; /* Set position to absolute */
+            top: 20px; /* Adjust top spacing */
+            right: 20px; /* Align to the right */
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        a.back-btn:hover {
+            background-color: #45a049;
+        }
+        h5 {
+            margin-bottom: 10px;
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        p {
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="back-btn">BACK</a>
+        {% if d %}
+            {% for i in d %}
+                <h5>{{i[10]}}</h5>
+                <p>Package Name: {{i[2]}}</p>
+                <p>Description: {{i[3]}}</p>
+                <p>Price: {{i[4]}}</p>
+                <p>Start Date: {{i[5]}}</p>
+                <p>End Date: {{i[6]}}</p>
+                <p>Duration (days): {{i[7]}}</p>
+                <p>Includes Amenities: {{ i[8] }}</p>
+                <p>Excludes Amenities: {{ i[9] }}</p>
+                <a href="{{ url_for('booktrip', tid=i[0]) }}"><button>Book Trip</button></a>
+                {% endfor %}
+        {% else %}
+            <p>No trip packages are added</p>
+        {% endif %}
+    </div>
+</body>
+</html>

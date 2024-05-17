@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hotel dashboard</title>
+</head>
+<body>
+    <a href="{{url_for('hlogout')}}">logout</a>
+    <a href="{{url_for('createhotel')}}">create hotel</a>
+    <a href="{{url_for('viewhotel_hotel')}}">view your hotel details</a>
+    <a href="{{url_for('viewbookings')}}">view  bookings</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4CAF50;
+        }
+        .dashboard-link {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .dashboard-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        <h1>Hotel Dashboard</h1>
+        <a href="{{url_for('hlogout')}}" class="dashboard-link">Logout</a>
+        <a href="{{url_for('createhotel')}}" class="dashboard-link">Create Hotel</a>
+        <a href="{{url_for('viewhotel_hotel')}}" class="dashboard-link">View Your Hotel Details</a>
+        <a href="{{url_for('viewbookings')}}" class="dashboard-link">View Bookings</a>
+    </div>
+</body>
+</html>

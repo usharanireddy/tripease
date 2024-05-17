@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view blogs anyone</title>
+</head>
+<body>
+    <a href="{{url_for('home')}}">BACK</a>
+
+    <h4>Blog</h4>
+    {% if b %}
+    {% for i in b %}
+    <p>title: {{i[1]}}</p>
+    <p>content: {{i[2]}}</p>
+    <p>uploaded time: {{i[3]}}</p>
+    <p>author: {{i[4]}}</p>
+    {% endfor %}
+    {% else %}
+    <p>no blogs are added</p>
+    {% endif %}
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h4 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .blog-item {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .blog-item p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .blog-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        .blog-content {
+            font-size: 16px;
+        }
+        .blog-meta {
+            color: #777;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{url_for('home')}}" class="back-button"><button> BACK</button></a>
+        <h4>Blog</h4>
+        {% if b %}
+        {% for i in b %}
+        <div class="blog-item">
+            <p class="blog-title">{{i[1]}}</p>
+            <p class="blog-content">{{i[2]}}</p>
+            <p class="blog-meta">Uploaded time: {{i[3]}} | Author: {{i[4]}}</p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No blogs are added</p>
+        {% endif %}
+    </div>
+</body>
+</html>

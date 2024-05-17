@@ -1,0 +1,144 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Registration Form</title>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <h1>Hotel Registration Form</h1>
+    <form action="#" method="POST">
+        <label for="hotel_name">Hotel Name:</label>
+        <input type="text" id="hotel_name" name="hotel_name" required><br><br>
+        
+        <label for="hotel_place">Hotel Place:</label>
+        <input type="text" id="hotel_place" name="hotel_place" required><br><br>
+        
+        <label for="hotel_email">Hotel Email:</label>
+        <input type="email" id="hotel_email" name="hotel_email" required><br><br>
+        
+        <label for="hotel_phone_number">Hotel Phone Number:</label>
+        <input type="tel" id="hotel_phone_number" name="hotel_phone_number"><br><br>
+        
+        <label for="hotel_username">Hotel Username:</label>
+        <input type="text" id="hotel_username" name="hotel_username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="submit">submit</button>
+    </form>
+    <a href="{{url_for('hlogin')}}">Alraedy have an ccount</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4CAF50;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        <h1>Hotel Registration Form</h1>
+        <form action="#" method="POST">
+            <label for="hotel_name">Hotel Name:</label>
+            <input type="text" id="hotel_name" name="hotel_name" required>
+            
+            <label for="hotel_place">Hotel Place:</label>
+            <input type="text" id="hotel_place" name="hotel_place" required>
+            
+            <label for="hotel_email">Hotel Email:</label>
+            <input type="email" id="hotel_email" name="hotel_email" required>
+            
+            <label for="hotel_phone_number">Hotel Phone Number:</label>
+            <input type="tel" id="hotel_phone_number" name="hotel_phone_number">
+            
+            <label for="hotel_username">Hotel Username:</label>
+            <input type="text" id="hotel_username" name="hotel_username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <a href="{{url_for('hlogin')}}">Already have an account?</a>
+    </div>
+</body>
+</html>
+
